@@ -1,6 +1,7 @@
 import react from 'react';
 import PeliculasList from "./components/PeliculasList";
-import './App.css'; 
+// import './App.css'; 
+import './App.scss';
 
 function App() {
   return (
