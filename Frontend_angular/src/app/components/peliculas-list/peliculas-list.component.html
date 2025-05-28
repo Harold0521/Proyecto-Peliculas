@@ -1,0 +1,33 @@
+<div class="fondo-peliculas">
+  <h2 class="titulo-principal">Películas en Cartelera</h2>
+  <div class="tarjetas">
+    <div 
+      class="tarjeta" 
+      *ngFor="let pelicula of peliculas" 
+      (click)="abrirModal(pelicula)"
+    >
+      <img [src]="pelicula.imagenUrl || 'https://www.districtwon.com/wp-content/uploads/sites/12/2024/03/image-placeholder-500x500-1-2.jpg'" [alt]="'Imagen de ' + pelicula.titulo">
+      <div class="contenido">
+        <h3>{{ pelicula.titulo }}</h3>
+        <p><strong>Director:</strong> {{ pelicula.director }}</p>
+        <p><strong>Año:</strong> {{ pelicula.anio }}</p>
+        <p><strong>Género:</strong> {{ pelicula.genero }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="peliculaSeleccionada" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>{{ peliculaSeleccionada.titulo }}</h3>
+      <p><strong>Director:</strong> {{ peliculaSeleccionada.director }}</p>
+      <p><strong>Año:</strong> {{ peliculaSeleccionada.anio }}</p>
+      <p><strong>Género:</strong> {{ peliculaSeleccionada.genero }}</p>
+      <p><strong>Sinopsis:</strong> {{ peliculaSeleccionada.sinopsis || 'Sin sinopsis disponible.' }}</p>
+      <button (click)="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Hecho Por Harold Gamba</p>
+  </footer>
+</div>
